@@ -14,3 +14,12 @@ services:
       - HESTIA_DB_PASSWORD=password
       - HESTIA_DB_NAME=hestia
 
+  db:
+    image: mysql:5.7
+    environment:
+      - MYSQL_ROOT_PASSWORD=password
+      - MYSQL_DATABASE=hestia
+      - MYSQL_USER=root
+      - MYSQL_PASSWORD=password
+    volumes:
+      - ./mysql:/var/lib/mysql
