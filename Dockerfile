@@ -22,3 +22,8 @@ ENV HESTIA_DB_PASSWORD=password
 ENV HESTIA_DB_NAME=hestia
 
 RUN mysql -h $HESTIA_DB_HOST -u $HESTIA_DB_USER -p$HESTIA_DB_PASSWORD $HESTIA_DB_NAME < /tmp/hestia.sql
+
+EXPOSE 8083
+VOLUME /var/www/hestiacp
+
+CMD ["php", "-S", "0.0.0.0:8083", "-t", "/var/www/hestiacp"]
