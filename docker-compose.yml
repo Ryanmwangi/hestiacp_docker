@@ -1,0 +1,16 @@
+version: '3'
+services:
+  hestiacp:
+    build: .
+    ports:
+      - "8083:8083"
+    volumes:
+      - ./hestiacp:/var/www/hestiacp
+    depends_on:
+      - db
+    environment:
+      - HESTIA_DB_HOST=db
+      - HESTIA_DB_USER=root
+      - HESTIA_DB_PASSWORD=password
+      - HESTIA_DB_NAME=hestia
+
