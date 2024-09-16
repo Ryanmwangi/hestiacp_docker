@@ -14,3 +14,4 @@ RUN apt-get update && apt-get install -y \
     mysql-server \
     nginx
 
+RUN curl -s https://raw.githubusercontent.com/hestiacp/hestiacp/master/install.sh | bash
