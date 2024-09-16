@@ -15,3 +15,10 @@ RUN apt-get update && apt-get install -y \
     nginx
 
 RUN curl -s https://raw.githubusercontent.com/hestiacp/hestiacp/master/install.sh | bash
+
+ENV HESTIA_DB_HOST=localhost
+ENV HESTIA_DB_USER=root
+ENV HESTIA_DB_PASSWORD=password
+ENV HESTIA_DB_NAME=hestia
+
+RUN mysql -h $HESTIA_DB_HOST -u $HESTIA_DB_USER -p$HESTIA_DB_PASSWORD $HESTIA_DB_NAME < /tmp/hestia.sql
